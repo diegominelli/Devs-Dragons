@@ -1,12 +1,13 @@
-function render() {
+export class PersonagemView {
+  render() {
     this.ulPersonagens.innerHTML = ''
     this.personagens.forEach(personagem => {
         const personagemLI = this.criaPersonagem(personagem)
         this.ulPersonagens.appendChild(personagemLI)
     })
-}
+  }
 
-criaPersonagem = (personagem) => {
+  criaPersonagem = (personagem) => {
     const personagemLI = document.createElement('li')
     personagemLI.classList.add('personagem')
 
@@ -46,7 +47,7 @@ criaPersonagem = (personagem) => {
         <h4 class="mana"></h4>
         <h4 class="vida"></h4>
     </div>
-    `
+      `
 
     /*const containerLevel = personagemLI.querySelector('.level')
     containerLevel.onclick = (evt) => {
@@ -72,33 +73,34 @@ criaPersonagem = (personagem) => {
     }*/
 
     return personagemLI
+  }
+
+
+  /*adicionaSelecao = (personagem) => {
+      this.personagensSelecionados.push(personagem)
+      this.render()
+  }
+
+
+  removeSelecao = (personagem) => {
+      const indexDoPersonagemNoArray = this.personagensSelecionados.indexOf(personagem)
+      this.personagensSelecionados.splice(indexDoPersonagemNoArray, 1)
+      this.render()
+  }
+
+  escutarEventoDuelo() {
+      const botaoDuelar = document.querySelector('.botao-duelar')
+
+      botaoDuelar.addEventListener('click', () => {
+          if (this.personagensSelecionados.length < 2) return mostrarModal('Selecione 2 personagens')
+
+          const resultadoDuelo = Personagem.verificarVencedor(this.personagensSelecionados[0], this.personagensSelecionados[1])
+
+          mostrarModal(resultadoDuelo)
+
+          this.personagensSelecionados.splice(0, this.personagensSelecionados.length)
+
+          this.render()
+      })
+  }*/
 }
-
-
-/*adicionaSelecao = (personagem) => {
-    this.personagensSelecionados.push(personagem)
-    this.render()
-}
-
-
-removeSelecao = (personagem) => {
-    const indexDoPersonagemNoArray = this.personagensSelecionados.indexOf(personagem)
-    this.personagensSelecionados.splice(indexDoPersonagemNoArray, 1)
-    this.render()
-}
-
-escutarEventoDuelo() {
-    const botaoDuelar = document.querySelector('.botao-duelar')
-
-    botaoDuelar.addEventListener('click', () => {
-        if (this.personagensSelecionados.length < 2) return mostrarModal('Selecione 2 personagens')
-
-        const resultadoDuelo = Personagem.verificarVencedor(this.personagensSelecionados[0], this.personagensSelecionados[1])
-
-        mostrarModal(resultadoDuelo)
-
-        this.personagensSelecionados.splice(0, this.personagensSelecionados.length)
-
-        this.render()
-    })
-}*/
