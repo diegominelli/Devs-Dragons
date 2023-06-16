@@ -62,7 +62,7 @@ export class PersonagemView {
     </div>
       `
 
-    /*const containerLevel = personagemLI.querySelector('.level')
+    const containerLevel = personagemLI.querySelector('.level')
     containerLevel.onclick = (evt) => {
         evt.stopPropagation()
 
@@ -71,8 +71,7 @@ export class PersonagemView {
         if (evt.target.classList.contains('aumentar-level')) personagem.aumentarLevel()
 
         this.render()
-    }*/
-
+    }
 
     personagemLI.onclick = () => {
         const jaTem2Selecionados = this.personagensSelecionados.length === 2
@@ -88,12 +87,10 @@ export class PersonagemView {
     return personagemLI
   }
 
-
   adicionaSelecao = (personagem) => {
       this.personagensSelecionados.push(personagem)
       this.render()
   }
-
 
   removeSelecao = (personagem) => {
       const indexDoPersonagemNoArray = this.personagensSelecionados.indexOf(personagem)
